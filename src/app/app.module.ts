@@ -10,6 +10,25 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
 import { StarsComponent } from './stars/stars.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'product/:title',
+    component: ProductDetailComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -19,12 +38,15 @@ import { StarsComponent } from './stars/stars.component';
     CarouselComponent,
     ProductComponent,
     FooterComponent,
-    StarsComponent
+    StarsComponent,
+    ProductDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
