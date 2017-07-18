@@ -13,6 +13,7 @@ import { StarsComponent } from './stars/stars.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ProductService } from './shared/product.service';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'product/:title',
+    path: 'product/:id',
     component: ProductDetailComponent
   }
 ];
@@ -48,7 +49,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

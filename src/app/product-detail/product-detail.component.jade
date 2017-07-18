@@ -1,3 +1,18 @@
 .thumbnail
   img(src="http://placehold.it/820x230")
-  h4 {{productTitle}}
+  div
+    h4.pull-right {{product.price}}元
+    h4 {{ product.title }}
+    p {{product.desc}}
+  div
+    p.pull-right {{comments.length}}
+    p
+      app-stars([rating]="product.rating")
+.well
+  .row(*ngFor="let comment of comments")
+    hr
+    .col-md-12
+      app-stars([rating]="comment.rating")
+      span {{comment.user}}
+      span.pull-right {{comment.timestamp}} 
+      p {{comment.content}}
