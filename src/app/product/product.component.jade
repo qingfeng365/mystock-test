@@ -1,4 +1,8 @@
-.col-md-4.col-sm-4.col-lg-4(*ngFor='let product of products')
+.row
+  .col-sm-12
+    .form-group
+      input.form-control(placeholder="请输入商品名称",[formControl]="searchCtrl")
+.col-md-4.col-sm-4.col-lg-4(*ngFor="let product of products | filter:'title':keyword")
   .thumbnail
     img(src='http://placehold.it/320x150')
     .caption
