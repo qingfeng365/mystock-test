@@ -11,8 +11,9 @@ export class FilterPipe implements PipeTransform {
     }
 
     return list.filter(item => {
-      const fieldValue = item[filterField];
-      return fieldValue.indexOf(keyword) >= 0;
+      const reg = new RegExp(keyword, 'gi');
+      const fieldValue: string = item[filterField];
+      return fieldValue.search(reg) >= 0;
     });
   }
 

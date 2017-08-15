@@ -9,6 +9,7 @@
       h4.pull-right {{product.price}}
       h4
         a([routerLink]="['/product', product.id]") {{product.title}}
-      p {{product.desc}}
+      p {{product.desc}} 
+      p {{product.rating}}
     div
-      app-stars([rating]='product.rating')
+      app-stars([(rating)]='product.rating')
